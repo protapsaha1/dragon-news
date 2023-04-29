@@ -7,9 +7,11 @@ const QZone = () => {
     return (
         <div className='bg-secondary'>
             <h4 className='text-white text-center pt-4'>Q-Zone</h4>
-            <img className='p-3' src={qzone1} alt="" />
-            <img className='p-3' src={qzone2} alt="" />
-            <img className='p-3' src={qzone3} alt="" />
+            <div className='px-3'>
+            <img className='' src={qzone1} alt="" />
+            <img className='' src={qzone2} alt="" />
+            <img className='' src={qzone3} alt="" />
+            </div>
         </div>
     );
 };
