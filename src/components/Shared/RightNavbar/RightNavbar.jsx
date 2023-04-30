@@ -53,7 +53,7 @@ const RightNavbar = () => {
                     <h3 className='text-white'>Create an Amazing Newspaper</h3>
                     <p className='text-white'><small>Discover thousands of options, easy to customize layouts, one-click to import demo and much more.</small></p>
                 </div>
-                <Button variant="danger" className='position-absolute bottom-5 start-7'>Learn More</Button>
+                <Button variant="danger" className='position-absolute bottom-0 mx-5 my-5 ' style={{marginLeft: 50}}>Learn More</Button>
             </div>
         </div>
 

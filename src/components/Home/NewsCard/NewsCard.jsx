@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, Image } from 'react-bootstrap';
 import { FaRegBookmark, FaRegStar, FaShareSquare, FaStar } from 'react-icons/fa';
 import { AiFillEye } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
-import Rating from 'react-rating';
+import { Rating } from '@smastrom/react-rating';
+import '@smastrom/react-rating/style.css';
 
 const NewsCard = ({ news }) => {
+    const [bookmark, setBookmark] = useState(false);
     // console.log(news)
     const { _id, title, author, image_url, details, total_view, rating } = news;
     return (
@@ -21,8 +23,13 @@ const NewsCard = ({ news }) => {
                                 <p className='m-0'>{moment(author?.published_date).format("YYYY-MM-DD")}</p>
                             </div>
                         </div>
-                        <div>
-                            <FaRegBookmark />
+                        <div className='d-flex align-items-center'>
+                            <div onClick={() => setBookmark(!bookmark)}>
+                                {
+                                    bookmark ?
+                                        <><FaRegBookmark /></> : <><FaRegBookmark className='text-dark' /></>
+                                }
+                            </div>
                             <FaShareSquare className='mx-2' />
                         </div>
                     </div>
@@ -36,14 +43,12 @@ const NewsCard = ({ news }) => {
                 </Card.Body>
                 <Card.Footer className="text-muted">
                     <div className='d-flex justify-content-between align-items-center '>
-                        <div className='flex-grow-1'>
+                        <div className='flex-grow-1 d-flex align-items-center'>
                             <Rating
-                                placeholderRating={rating?.number}
-                                emptySymbol={<FaRegStar />}
-                                placeholderSymbol={<FaStar className='text-warning' />}
-                                fullSymbol={<FaStar />}
-                                readonly
-                            /> <span className='m-0 '>{rating?.number}</span>
+                                style={{ maxWidth: 150 }}
+                                value={rating?.number}
+                                readOnly
+                            /><span className='mx-2 '>{rating?.number}</span>
                         </div>
                         <p className='m-0'><AiFillEye /> {total_view}</p>
                     </div>

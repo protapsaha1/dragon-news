@@ -68,8 +68,7 @@ const SignUp = () => {
         //     })
     }
     const handleTerms = e => {
-        setAccepted(e.target.Checked)
-        console.log(e.target.checked)
+        setAccepted(e.target.Checked);
     }
 
     return (
@@ -127,7 +126,7 @@ const SignUp = () => {
                         label={<>Accept <Link to="/terms">Terms and Conditions</Link></>} />
                 </Form.Group>
 
-                <Button className='w-50' disabled={!accepted}  variant="primary" type="submit">
+                <Button className='w-50' disabled={accepted}  variant="primary" type="submit">
                     Register
                 </Button>
             </Form>

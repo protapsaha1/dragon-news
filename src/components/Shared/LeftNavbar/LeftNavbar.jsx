@@ -8,7 +8,7 @@ import third from '../../../assets/3.png';
 const LeftNavbar = () => {
     const [categories, setCategories] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5001/categories')
+        fetch('https://the-dragon-news-server-protapsaha1.vercel.app/categories')
             .then(res => res.json())
             .then(data => setCategories(data))
             .catch(error => console.error(error.message))
