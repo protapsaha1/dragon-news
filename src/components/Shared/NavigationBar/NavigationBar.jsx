@@ -26,17 +26,23 @@ const NavigationBar = () => {
                             <Link className='text-decoration-none text-secondary mx-2' to="/about">About</Link>
                             <Link className='text-decoration-none text-secondary mx-2' to="/career">Career</Link>
                         </Nav>
-                        <Nav>
-                            {
-                                user && user.displayName
-                            }
-                            {
-                                user ?
-                                    <Image style={{ height: 40, width: 40 }} className='mx-2' src={user.photoURL} alt="" roundedCircle />
-                                    :
-                                    <FaUserCircle style={{ height: 40, width: 40 }} className='mx-2' />
+                        <Nav className='d-flex align-items-center'>
+                            <div className='d-flex align-items-center'>
+                                <div>
+                                    {
+                                        user && user.displayName
+                                    }
+                                </div>
+                                <div>
+                                    {
+                                        user ?
+                                            <Image style={{ height: 40, width: 40 }} className='mx-2' src={user.photoURL} alt="" roundedCircle />
+                                            :
+                                            <FaUserCircle style={{ height: 40, width: 40 }} className='mx-2' />
 
-                            }
+                                    }
+                                </div>
+                            </div>
                             {
                                 user
                                     ?
