@@ -3,8 +3,10 @@ import { Button, Container, Form, InputGroup } from 'react-bootstrap';
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { UserProvider } from '../../providers/ContextProvider';
+import useTitle from '../../hooks/useTitle';
 
 const SignUp = () => {
+    useTitle('register');
     const { createEmailPass, userUpdate, userEmailUpdate, verifyEmail } = useContext(UserProvider);
     const [show, setShow] = useState(false);
     const [accepted, setAccepted] = useState(false);
@@ -123,10 +125,10 @@ const SignUp = () => {
                         onClick={handleTerms}
                         type="checkbox"
                         name='accept'
-                        label={<>Accept <Link to="/terms">Terms and Conditions</Link></>} />
+                        label={accepted ? <>Accept </> : <><Link to="/terms">Terms and Conditions</Link></>} />
                 </Form.Group>
 
-                <Button className='w-50' disabled={accepted}  variant="primary" type="submit">
+                <Button className='w-50' disabled={!accepted} variant="primary" type="submit">
                     Register
                 </Button>
             </Form>

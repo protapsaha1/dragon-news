@@ -3,10 +3,12 @@ import { Button, Container, Form, InputGroup } from 'react-bootstrap';
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { UserProvider } from '../../providers/ContextProvider';
+import useTitle from '../../hooks/useTitle';
 
 const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
+    useTitle('Login')
     console.log(location)
     const from = location.state?.from?.pathname || "/categories/0";
     console.log('from', from)

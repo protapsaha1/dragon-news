@@ -4,8 +4,10 @@ import { useLoaderData } from 'react-router-dom';
 import EditorInSights from '../EditorInSights/EditorInSights';
 import { Link } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
+import useTitle from '../../../hooks/useTitle';
 
 const News = () => {
+    useTitle('News')
     const categoryNewses = useLoaderData();
     const { image_url, details, category_id } = categoryNewses;
     return (

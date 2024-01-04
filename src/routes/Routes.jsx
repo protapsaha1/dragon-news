@@ -13,6 +13,7 @@ import Login from '../components/Login/Login';
 import SignUp from '../components/SignUp/SignUp';
 import PrivateRoute from '../components/UserAccessOnly/PrivateRoute';
 import TermsConditions from '../components/terms/TermsConditions';
+import ErrorPage from '../components/ErrorPage/ErrorPage';
 
 const router = createBrowserRouter([
     {
@@ -32,8 +33,8 @@ const router = createBrowserRouter([
                 element: <SignUp></SignUp>
             },
             {
-                path:"terms",
-                element:<TermsConditions></TermsConditions>
+                path: "terms",
+                element: <TermsConditions></TermsConditions>
             }
         ]
     },
@@ -66,6 +67,10 @@ const router = createBrowserRouter([
                 loader: ({ params }) => fetch(`https://the-dragon-news-server-protapsaha1.vercel.app/news/${params.id}`)
             }
         ]
+    },
+    {
+        path: '*',
+        element: <ErrorPage></ErrorPage>
     }
 
 ]);
